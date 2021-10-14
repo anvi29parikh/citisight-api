@@ -1,10 +1,11 @@
 package com.citysight.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.sun.istack.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +14,12 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name="role")
+@EntityListeners(AuditingEntityListener.class)
 public class Role extends Common{
 
 	@Id
 	@Column(name="role_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int roleId;
 	
 	@NotNull
