@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.citysight.dto.LoginRequestDto;
 import com.citysight.dto.ResponseDto;
 import com.citysight.entities.Account;
 import com.citysight.services.AuthenticationService;
@@ -24,7 +25,7 @@ public class AuthenticationController {
 
 	@Autowired
 	private AuthenticationService authenticationService;
-	@GetMapping("/publicAPI")
+	@GetMapping("/publicAPI1")
 	public String publicAPI () {
 		return "public api";
 	}
@@ -39,5 +40,11 @@ public class AuthenticationController {
 		log.info("Attemtng to create a account with email : {}", account.getEmail());
 			authenticationService.register(account);
 			return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "USER_REGISTERED"), HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/publicAPI")
+	public ResponseEntity<ResponseDto> login (@Valid @RequestBody LoginRequestDto loginRequestDto) {
+		authenticationService.login(loginRequestDto);
+		return new ResponseEntity<>(authenticationService.login(loginRequestDto), HttpStatus.OK);
 	}
 }
