@@ -42,7 +42,7 @@ public class AuthenticationController {
 			return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "USER_REGISTERED"), HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/publicAPI")
+	@PostMapping("/login")
 	public ResponseEntity<ResponseDto> login (@Valid @RequestBody LoginRequestDto loginRequestDto) {
 		authenticationService.login(loginRequestDto);
 		return new ResponseEntity<>(authenticationService.login(loginRequestDto), HttpStatus.OK);
