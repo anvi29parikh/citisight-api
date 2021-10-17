@@ -16,17 +16,12 @@ import com.citysight.dto.ResponseDto;
 import com.citysight.entities.Account;
 import com.citysight.services.AuthenticationService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
-
-
-
+@Slf4j
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
-	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private AuthenticationService authenticationService;
@@ -42,7 +37,7 @@ public class AuthenticationController {
 	
 	@PostMapping("/register")
 	public ResponseEntity<ResponseDto> register (@Valid @RequestBody Account account) {
-		logger.info("Attemtng to create a account with email : {}", account.getEmail());
+		log.info("Attemtng to create a account with email : {}", account.getEmail());
 			authenticationService.register(account);
 			return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "USER_REGISTERED"), HttpStatus.CREATED);
 	}
