@@ -42,7 +42,7 @@ public class JwtUtil {
     }
 
     public String extractRole(String token) {
-        return (String) Jwts.parser().setSigningKey(salt).parseClaimsJws(token).getBody().get("Role");
+        return "ROLE_" + (String) Jwts.parser().setSigningKey(salt).parseClaimsJws(token).getBody().get("Role");
     }
 
 //    public Date extractRoleName(String token) {
