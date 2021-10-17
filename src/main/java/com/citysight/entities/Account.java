@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -50,7 +51,7 @@ public class Account {
     @Column(name = "Password")
     private String password;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     private Role role;
 	
@@ -60,8 +61,8 @@ public class Account {
 	private String address;
 	
 	@NotNull
-    @Column(name = "active_flag", columnDefinition = "tinyint default true")
-    private boolean activeFlag;
+    @Column(name = "active_flag", columnDefinition = "tinyint default 1")
+    private boolean activeFlag = true;
 	
 	@CreatedBy
     @ManyToOne(cascade = CascadeType.ALL, optional = true, fetch = FetchType.LAZY)

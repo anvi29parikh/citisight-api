@@ -43,6 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //allow these requests
         http.authorizeRequests().antMatchers(Stream.concat(Arrays.stream(publicApis()), Arrays.stream(publicAuthApis()))
                         .toArray(String[]::new)).permitAll()
+        .antMatchers("/admin/**").hasRole("ADMIN")
+        .antMatchers("/user/**").hasRole("USER")
                 //and authorize all others
                 .anyRequest().authenticated();
         //apply filter
