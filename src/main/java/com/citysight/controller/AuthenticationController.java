@@ -15,14 +15,15 @@ import com.citysight.dto.LoginRequestDto;
 import com.citysight.dto.ResponseDto;
 import com.citysight.entities.Account;
 import com.citysight.services.AuthenticationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
-
+	
+	final static Logger log = LoggerFactory.getLogger(AuthenticationController.class);
 	@Autowired
 	private AuthenticationService authenticationService;
 	@GetMapping("/publicAPI1")

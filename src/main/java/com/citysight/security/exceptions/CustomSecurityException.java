@@ -1,13 +1,13 @@
 package com.citysight.security.exceptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
-@AllArgsConstructor
 public class CustomSecurityException extends RuntimeException {
-    private final String message;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final String message;
     private final HttpStatus httpStatus;
     
 
@@ -15,4 +15,27 @@ public class CustomSecurityException extends RuntimeException {
         this.message = e.getMessage();
         this.httpStatus = e.getHttpStatus();
     }
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public HttpStatus getHttpStatus() {
+		return httpStatus;
+	}
+
+
+	/**
+	 * @param message
+	 * @param httpStatus
+	 */
+	public CustomSecurityException(String message, HttpStatus httpStatus) {
+		super();
+		this.message = message;
+		this.httpStatus = httpStatus;
+	}
+    
+    
 }

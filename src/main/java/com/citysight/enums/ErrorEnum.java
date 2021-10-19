@@ -1,10 +1,6 @@
 package com.citysight.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@Getter
-@AllArgsConstructor
 public enum ErrorEnum {
     // ENUMS
     METHOD_LOGIC_ERROR("101", "An error occurred while executing the Logic"),
@@ -20,4 +16,22 @@ public enum ErrorEnum {
     // properties
     private final String errorCode;
     private final String message;
+    
+    // Getters
+	public String getErrorCode() {
+		return errorCode;
+	}
+	public String getMessage() {
+		return message;
+	}
+	
+	/**
+	 * @param errorCode
+	 * @param message
+	 */
+	private ErrorEnum(String errorCode, String message) {
+		this.errorCode = errorCode;
+		this.message = message;
+	}
+	
 }
