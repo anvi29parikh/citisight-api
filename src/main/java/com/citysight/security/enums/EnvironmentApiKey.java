@@ -1,11 +1,5 @@
 package com.citysight.security.enums;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@Getter
-@AllArgsConstructor
 public enum EnvironmentApiKey {
     LOCAL("THISISAVERYLONGANDSOMETHINGSOMETHINGHARDSECRETSALTWHATEVERITISBLABLABLABLABLABLABLALOOKSGOODIGUESS"),
     LOCAL2("THISISAVERYLONGANDSOMETHINGSOMETHINGHARDSECRETSALTWHATEVERITISBLABLABLABLATHISISSECONDONEBLABLABLALOOKSGOODIGUESS"),
@@ -13,4 +7,17 @@ public enum EnvironmentApiKey {
     PROD2("THISISAVERYLONGANDSOMETHINGSOMETHINGHARDSECRETSALTWHATEVERITISBLABLABLABLATHISISSECONDONEBLABLABLALOOKSGOODIGUESS"),
     ;
     private String value;
+
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value
+	 */
+	private EnvironmentApiKey(String value) {
+		this.value = value;
+	}
+    
+    
 }

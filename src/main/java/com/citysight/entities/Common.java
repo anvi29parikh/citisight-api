@@ -3,18 +3,12 @@ package com.citysight.entities;
 import java.util.Date;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
 public class Common {
@@ -42,4 +36,39 @@ public class Common {
     @Temporal(value = TemporalType.TIMESTAMP)
     @JsonIgnore
     private Date modifyDate;
+
+	public Account getCreateByAccountId() {
+		return createByAccountId;
+	}
+
+	public void setCreateByAccountId(Account createByAccountId) {
+		this.createByAccountId = createByAccountId;
+	}
+
+	public Account getModifyByAccountId() {
+		return modifyByAccountId;
+	}
+
+	public void setModifyByAccountId(Account modifyByAccountId) {
+		this.modifyByAccountId = modifyByAccountId;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+    
+    
+    
 }
