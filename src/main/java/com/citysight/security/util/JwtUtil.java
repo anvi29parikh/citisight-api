@@ -21,7 +21,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    final int expiryTime = 360000;
+    final int expiryTime = 43200000;
     private String salt;
 
 
