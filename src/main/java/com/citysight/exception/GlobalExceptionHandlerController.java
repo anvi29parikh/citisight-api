@@ -66,6 +66,8 @@ public class GlobalExceptionHandlerController extends ResponseEntityExceptionHan
     @ExceptionHandler(Exception.class)
     protected ErrorDto handleException(HttpServletResponse response, Exception e) throws IOException {
         response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        System.out.println(e);
+        e.printStackTrace();
         return new ErrorDto(ErrorEnum.METHOD_LOGIC_ERROR.getErrorCode(), ErrorEnum.METHOD_LOGIC_ERROR.getMessage());
     }
 }

@@ -51,7 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	@Override
     public ResponseDto login(LoginRequestDto loginRequest) {
         Optional<Account> account = accountRepository.findByEmail(loginRequest.getEmail());
-        log.error(".....{}..{}",account,loginRequest.getEmail());
+        log.info(".....{}..{}",account,loginRequest.getEmail());
         if (account.isPresent() && validateAuth(account.get(), loginRequest)) {
             String token = jwtUtil.generateToken(account.get().getEmail(), account.get().getRole().getRoleName());
             String tokenExpiry = jwtUtil.extractExpiration(token).toString();

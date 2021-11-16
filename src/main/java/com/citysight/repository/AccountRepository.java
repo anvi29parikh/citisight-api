@@ -14,7 +14,11 @@ import com.citysight.entities.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 
 	Optional<Account> findByEmail(String email);
-	
+
+
+
 	@Query("select new com.citysight.dto.AccountDto(ac.accountId, ac.email, ac.fname, ac.lname, ac.role, ac.address) from Account ac")
 	List<AccountDto> fetchAllAccountDtos();
+
+
 }

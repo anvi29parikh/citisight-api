@@ -40,7 +40,7 @@ public class AuthenticationController {
 	public ResponseEntity<ResponseDto> register (@Valid @RequestBody Account account) {
 		log.info("Attemtng to create a account with email : {}", account.getEmail());
 			authenticationService.register(account);
-			return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "USER_REGISTERED"), HttpStatus.CREATED);
+				return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "USER_REGISTERED"), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/login")

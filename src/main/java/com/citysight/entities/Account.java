@@ -29,7 +29,7 @@ public class Account {
 	@Length(max=100)
 	@Column(name="email", unique = true)
 	private String email;
-	
+
 	@NotNull
 	@Length(max=100)
 	@Column(name="fname")
@@ -175,7 +175,7 @@ public class Account {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-    
-    
-    
+
+
+
 }
