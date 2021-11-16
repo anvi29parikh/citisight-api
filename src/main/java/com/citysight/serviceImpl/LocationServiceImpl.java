@@ -64,7 +64,15 @@ public class LocationServiceImpl implements LocationService {
 
     }
 
-
+    @Override
+    public void deleteLocation(int id) {
+    	Optional<Location> locationObj = locationRepository.findByLocationId(id);
+    	if(locationObj.isPresent()) {
+    		Location location = locationObj.get();
+    		location.setActiveFlag(false);
+    		locationRepository.save(location);
+    	}
+    }
 
 
 }

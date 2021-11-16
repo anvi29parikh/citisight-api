@@ -14,6 +14,7 @@ public interface LocationService {
 
      void updateLocation(int id, LocationDto locationDto);
 
+     void deleteLocation(int id);
 
 
 }

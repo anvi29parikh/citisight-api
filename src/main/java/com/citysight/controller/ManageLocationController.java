@@ -37,6 +37,12 @@ public class ManageLocationController {
         locationService.updateLocation(id, locationDto);
         return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.CREATED, "LOCATION_Updated"), HttpStatus.CREATED);
     }
+    
+    @DeleteMapping("/location/{id}")
+    public ResponseEntity<ResponseDto> deleteLocation (@PathVariable int id){
+    	locationService.deleteLocation(id);
+    	return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.OK, "Locaton Deleted"), HttpStatus.OK);
+    }
 
 
 }
