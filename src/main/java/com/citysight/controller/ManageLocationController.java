@@ -43,6 +43,12 @@ public class ManageLocationController {
     	locationService.deleteLocation(id);
     	return new ResponseEntity<>(new ResponseDto("Status: " + HttpStatus.OK, "Locaton Deleted"), HttpStatus.OK);
     }
+    
+    @GetMapping("/locations")
+    public ResponseEntity<ResponseDto> fetchLocations (){
+    	
+    	return new ResponseEntity<>(locationService.fetchLocations(), HttpStatus.OK);
+    }
 
 
 }
