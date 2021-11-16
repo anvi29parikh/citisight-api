@@ -11,6 +11,7 @@ import com.citysight.entities.Location;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Integer> {
@@ -19,5 +20,6 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     @Transactional
     @Query("update Location a set a.name=?1, a.address=?2, a.description=?3, a.directions=?4, a.latitude=?5, a.longitude=?6 where a.locationId=?7")
     void updatedLocation(String name, String address, String description, String direction, String latitude, String longitude, int id);
-
+    
+    Optional<Location> findByLocationId(int id);
 }
