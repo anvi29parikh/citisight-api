@@ -11,6 +11,7 @@ import com.citysight.services.AccountService;
 import com.citysight.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -72,6 +73,15 @@ public class LocationServiceImpl implements LocationService {
     		location.setActiveFlag(false);
     		locationRepository.save(location);
     	}
+    }
+    
+    @Override
+    public ResponseDto fetchLocations () {
+    	ResponseDto responseDto = new ResponseDto();
+    	List<Location> locationList = locationRepository.findAll();
+    	responseDto.setData(locationList);
+		responseDto.setMetadata(null);
+		return responseDto;
     }
 
 
