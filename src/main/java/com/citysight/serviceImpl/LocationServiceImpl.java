@@ -84,5 +84,27 @@ public class LocationServiceImpl implements LocationService {
 		return responseDto;
     }
 
+    @Override
+    public ResponseDto fetchLocationById(int id) {
+    	ResponseDto responseDto = new ResponseDto();
+    	Optional<Location> location = locationRepository.findByLocationId(id);
+    	if(location.isPresent()) {
+    		responseDto.setData(location.get());
+    		responseDto.setMetadata(null);
+    		return responseDto;
+    	}else {
+    		throw new CustomException(ErrorEnum.NOT_FOUND,HttpStatus.NOT_FOUND);
+    	}
+    	
+    }
 
+    @Override
+    public ResponseDto fetchActiveLocations() {
+    	ResponseDto responseDto = new ResponseDto();
+    	List<Location> locationList = locationRepository.findAllByActiveFlag(true);
+    	responseDto.setData(locationList);
+		responseDto.setMetadata(null);
+		return responseDto;
+    	
+    }
 }

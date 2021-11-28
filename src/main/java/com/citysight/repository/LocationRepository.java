@@ -22,4 +22,7 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     void updatedLocation(String name, String address, String description, String direction, String latitude, String longitude, int id);
     
     Optional<Location> findByLocationId(int id);
+    
+    @Query("from Location l where l.activeFlag=?1")
+    List<Location> findAllByActiveFlag(Boolean activeFlag);
 }
