@@ -1,10 +1,7 @@
 package com.citysight.controller;
 
-import com.citysight.dto.AccountDto;
 import com.citysight.dto.LocationDto;
 import com.citysight.dto.ResponseDto;
-import com.citysight.entities.Account;
-import com.citysight.entities.Location;
 import com.citysight.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/admin")

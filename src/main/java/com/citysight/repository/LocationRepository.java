@@ -1,8 +1,5 @@
 package com.citysight.repository;
 
-
-import com.citysight.dto.LocationDto;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +22,6 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     
     @Query("from Location l where l.activeFlag=?1")
     List<Location> findAllByActiveFlag(Boolean activeFlag);
+    
+    Optional<Location> findByLocationIdAndActiveFlag(int id, Boolean activeFlag);
 }
