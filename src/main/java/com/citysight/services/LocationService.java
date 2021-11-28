@@ -20,6 +20,8 @@ public interface LocationService {
      void deleteLocation(int id);
      
      ResponseDto fetchLocations();
-
-
+     
+     ResponseDto fetchActiveLocations();
+     
+     ResponseDto fetchLocationById(int id);
 }
