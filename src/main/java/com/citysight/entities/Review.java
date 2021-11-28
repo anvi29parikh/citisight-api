@@ -31,8 +31,7 @@ public class Review{
     @Column(name="review")
     private String review;
 
-    @NotNull
-    @Length(max=10)
+   
     @Column(name="ratings")
     private int ratings;
 
